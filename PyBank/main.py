@@ -26,6 +26,20 @@ with open(csv_path, "r") as csvfileinteracter:
         inc_date = str(date[revenue_change.index(max(revenue_change))])
         dec_date = str(date[revenue_change.index(min(revenue_change))])
 
+
+
+Financial_Analysis = os.path.join("FinancialAnalysis.txt")
+with open(Financial_Analysis, 'w', newline="") as datafile:
+    csvWriter = csv.writer(datafile)
+    csvWriter.writerow(["Financial Analysis"])
+    csvWriter.writerow(["----------------------------"])
+    csvWriter.writerow(["Total Months: " + str(total_months)])
+    csvWriter.writerow(["Total Revenue: $" + str(int(total_revenue))])
+    csvWriter.writerow(["Average Revenue Change: $" + str(int(avg_rev_change))])
+    csvWriter.writerow(["Greatest Increase in Revenue: " + str(inc_date) + " " + "($" + str(int(inc_rev_change)) + ")"])
+    csvWriter.writerow(["Greatest Decrease in Revenue: " + str(dec_date) + " " + "($" + str(int(dec_rev_change)) + ")"])
+
+
 print("Financial Analysis")
 print("--------------------------------")
 print("Total Months: " + str(total_months))
